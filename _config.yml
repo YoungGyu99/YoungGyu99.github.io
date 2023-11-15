@@ -1,21 +1,17 @@
-title: Abhishek Nagekar
-description: Web & Security Engineer
-site_title: '@abhn - Abhishek Nagekar'
+title: 이영규
+description: 여행을 사랑하는 개발자
+site_title: 여행을 사랑하는 개발자
 
 # Build settings
 markdown: kramdown
 exclude: [vendor/ruby]
 
 # Personalization
-github_username: abhn
-blog_url: https://www.nagekar.com
-email: abhishek@nagekar.com
+github_username: YoungGyu99
+email: robot090831@gmail.com
 keybase_username: abhn
 twitter_username: abhn_
 reddit_username: abhn
 
 # absolute or relative
 profile_picture: assets/images/pp.jpg
-
-# Google Analytics ID
-google_analytics: 
