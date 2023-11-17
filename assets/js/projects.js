@@ -15,7 +15,7 @@ let render_projects = (slug) => {
             link: 'https://github.com/YoungGyu99/FestivalBotProject',
             title: '축제길잡이',
             demo: 'https://mporter.co',
-            technologies: ['Spring', 'Html','Java',],
+            technologies: ['Spring', 'Html','Java']
             description: "축제컨텐츠 및 축제기획서 작성에 도움을 주는 웹서비스입니다.",
             categories: ['featured', 'webdev']
         },
