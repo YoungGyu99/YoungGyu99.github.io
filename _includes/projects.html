@@ -13,7 +13,44 @@
             </div>
 
             <div class="projects-wrapper">
-                <!-- 여기에 프로젝트가 삽입됩니다. -->
+                // 해당 코드를 기존의 JavaScript 코드 뒷부분에 추가합니다.
+    let projects_obj = [
+        {
+            image: 'assets/images/FestivalGuideProject.png',
+            link: 'https://github.com/YoungGyu99/FestivalGuideProject',
+            title: '축제길잡이',
+            technologies: ['Java', 'Oracle', 'Spring', 'Apache Tomcat'],
+            description: "축제의 관객이 아닌 축제 관리자의 시점으로 축제 컨텐츠를 추천해주고 기획서 작성에 도움을 주기 위한 목적으로 제작된 축제길잡이",
+        },
+        
+        {
+            image: 'assets/images/koalamate.png',
+            link: 'https://github.com/abhn/koalamate',
+            title: 'Koalamate',
+            demo: false,
+            technologies: ['Electron', 'Javascript'],
+            description: "A cross-platform desktop application that serves as a Wolfram Alpha query place and notes taker.",
+        },
+    ];
+    
+    let render_projects = (slug) => {
+        let projects_area = $('.projects-wrapper');
+    
+        $('.white-button').removeClass('white-button-hover');
+        $(`#${slug}`).addClass('white-button-hover');
+    
+        let projects = [];
+        if(slug == 'all') {
+            projects = projects_obj.map(project_mapper);
+        } 
+        else {
+            projects = projects_obj.filter(project => project.categories && project.categories.includes(slug)).map(project_mapper);
+        }
+        projects_area.hide().html(projects).fadeIn();
+    }
+    
+    // 해당 코드를 기존의 JavaScript 코드 뒷부분에 추가합니다.
+
             </div>
         </div>
     </section>
