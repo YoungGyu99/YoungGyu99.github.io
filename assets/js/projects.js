@@ -6,7 +6,7 @@ let projects_obj = [
         technologies: ['Java', 'Oracle', 'Spring', 'Apache Tomcat'],
         description: "축제의 관객이 아닌 축제 관리자의 시점으로 축제 컨텐츠를 추천해주고 기획서 작성에 도움을 주기 위한 목적으로 제작된 축제길잡이",
     },
-    // ... (다른 프로젝트들도 동일하게 수정)
+    
     {
         image: 'assets/images/koalamate.png',
         link: 'https://github.com/abhn/koalamate',
