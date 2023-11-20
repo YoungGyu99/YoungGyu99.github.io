@@ -5,9 +5,7 @@
             <div class="section-heading" id="featured-projects-text">Projects</div>
 
             <div class="project-technologies">
-                <a id="featured" class="semi-transparent-button with-border white-button" onclick="selected('featured')">Featured</a>
-                <a id="all" class="semi-transparent-button with-border white-button" onclick="selected('all')">All</a>
-                <!-- 나머지 버튼들도 마찬가지로 주석 해제해 주세요. -->
+                <!-- 버튼 부분은 제거 -->
             </div>
 
             <div class="projects-wrapper">
@@ -41,16 +39,12 @@
     let render_projects = (slug) => {
         let projects_area = $('.projects-wrapper');
 
-        $('.white-button').removeClass('white-button-hover');
-        $(`#${slug}`).addClass('white-button-hover');
+        // 모든 버튼 제거
+        $('.project-technologies').empty();
 
         let projects = [];
-        if(slug == 'all') {
-            projects = projects_obj.map(project_mapper);
-        } 
-        else {
-            projects = projects_obj.filter(project => project.categories && project.categories.includes(slug)).map(project_mapper);
-        }
+        projects = projects_obj.map(project_mapper);
+        
         projects_area.hide().html(projects).fadeIn();
     }
 
@@ -83,12 +77,8 @@
         `;
     }
 
-    let selected = (slug) => {
-        render_projects(slug);
-    }
-
     // 초기 렌더링
     $(document).ready(() => {
-        render_projects('featured');
+        render_projects(); // 'all' 대신에 아무것도 전달하지 않음
     });
 </script>
