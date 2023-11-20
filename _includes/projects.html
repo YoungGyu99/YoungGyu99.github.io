@@ -1,9 +1,24 @@
+<!-- HTML 부분 -->
 <div class="section-wrapper">
     <section class="section projects" id="projects">
         <div class="full-width">
             <div class="section-heading" id="featured-projects-text">Projects</div>
+
+            <div class="project-technologies">
+                <a id="featured" class="semi-transparent-button with-border white-button" onclick="selected('featured')">Featured</a>
+                <a id="all" class="semi-transparent-button with-border white-button" onclick="selected('all')">All</a>
+                <!-- 나머지 버튼들도 마찬가지로 주석 해제해 주세요. -->
+            </div>
+
             <div class="projects-wrapper">
-                // 해당 코드를 기존의 JavaScript 코드 뒷부분에 추가합니다.
+                <!-- filled in by js -->
+            </div>
+        </div>
+    </section>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
     let projects_obj = [
         {
             image: 'assets/images/FestivalGuideProject.png',
@@ -12,7 +27,6 @@
             technologies: ['Java', 'Oracle', 'Spring', 'Apache Tomcat'],
             description: "축제의 관객이 아닌 축제 관리자의 시점으로 축제 컨텐츠를 추천해주고 기획서 작성에 도움을 주기 위한 목적으로 제작된 축제길잡이",
         },
-        
         {
             image: 'assets/images/koalamate.png',
             link: 'https://github.com/abhn/koalamate',
@@ -21,14 +35,15 @@
             technologies: ['Electron', 'Javascript'],
             description: "A cross-platform desktop application that serves as a Wolfram Alpha query place and notes taker.",
         },
+        // 다른 프로젝트 데이터도 필요에 따라 추가
     ];
-    
+
     let render_projects = (slug) => {
         let projects_area = $('.projects-wrapper');
-    
+
         $('.white-button').removeClass('white-button-hover');
         $(`#${slug}`).addClass('white-button-hover');
-    
+
         let projects = [];
         if(slug == 'all') {
             projects = projects_obj.map(project_mapper);
@@ -38,10 +53,42 @@
         }
         projects_area.hide().html(projects).fadeIn();
     }
-    
-    // 해당 코드를 기존의 JavaScript 코드 뒷부분에 추가합니다.
 
+    let project_mapper = project => {
+        return `
+            <div class="wrapper">
+                <div class="card radius shadowDepth1">
+                    ${project.image ? 
+                        `<div class="card__image border-tlr-radius">
+                            <a href="${project.link}">
+                                <img src="${project.image}" alt="image" id="project-image" class="border-tlr-radius">
+                            </a>
+                        </div>`           
+                    : ''}
+
+                    <div class="card__content card__padding">
+                        <article class="card__article">
+                            <h2><a href="${project.link}">${project.title}</a></h2>
+                            <p class="paragraph-text-normal">${project.description} ${project.demo ? `<a href="${project.demo}">Demo</a>` : ''}</p>
+                        </article>
+
+                        <div class="card__meta">
+                            ${project.technologies.map(tech =>
+                                `<span class="project-technology paragraph-text-normal">${tech}</span>`
+                            ).join('')}
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
-</div>
+        `;
+    }
+
+    let selected = (slug) => {
+        render_projects(slug);
+    }
+
+    // 초기 렌더링
+    $(document).ready(() => {
+        render_projects('featured');
+    });
+</script>
