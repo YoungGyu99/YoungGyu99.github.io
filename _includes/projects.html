@@ -1,3 +1,21 @@
+<!-- HTML 부분 -->
+<div class="section-wrapper">
+    <section class="section projects" id="projects">
+        <div class="full-width">
+            <div class="section-heading" id="featured-projects-text">Projects</div>
+
+            <div class="project-technologies">
+                <!-- 버튼 부분은 제거 -->
+            </div>
+
+            <div class="projects-wrapper">
+                <!-- filled in by js -->
+            </div>
+        </div>
+    </section>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
     let projects_obj = [
         {
@@ -5,18 +23,14 @@
             link: 'https://github.com/YoungGyu99/FestivalGuideProject',
             title: '축제길잡이',
             technologies: ['Java', 'Oracle', 'Spring', 'Apache Tomcat'],
-            description: `
-                기능 : 챗봇기능: ChatGpt api를 활용하여 미리 입력한 질문에 대해서 답변을 받을 수 있도록 구현하였습니다.
-                설명 : 축제의 관광객이 아닌 축제 관리자의 시점으로 축제 컨텐츠를 추천해주고 기획서 작성에 도움을 주기 위한 목적으로 제작된 축제길잡이
-                성과 : 축제의 관광객이 아닌 축제 관리자의 시점으로 축제 컨텐츠를 추천해주고 기획서 작성에 도움을 주기 위한 목적으로 제작된 축제길잡이`,
+            description: "기능 : 챗봇기능: ChatGpt api를 활용하여 미리 입력한 질문에 대해서 답변을 받을 수 있도록 구현하였습니다. 설명 : 축제의 관광객이 아닌 축제 관리자의 시점으로 축제 컨텐츠를 추천해주고 기획서 작성에 도움을 주기 위한 목적으로 제작된 축제길잡이 성과 : 축제의 관광객이 아닌 축제 관리자의 시점으로 축제 컨텐츠를 추천해주고 기획서 작성에 도움을 주기 위한 목적으로 제작된 축제길잡이",          
         },
         {
             image: 'assets/images/FestivalBot.png',
             link: 'https://github.com/YoungGyu99/FestivalBotProject',
             title: '축제봇',
             technologies: ['Machine-Learning ', 'Html','JavaScript', ],
-            description: `
-                어떤 축제를 방문할지 모르는 관광객을 위해 원하는 축제 주제를 통한 축제 추천과 검색어 순위를 통해 어떤 내용을 많이 검색하는지 순위를 알려주는 축제봇`,
+            description: "어떤 축제를 방문할지 모르는 관광객을 위해 원하는 축제 주제를 통한 축제 추천과 검색어 순위를 통해 어떤 내용을 많이 검색하는지 순위를 알려주는 축제봇",
         },
         // 다른 프로젝트 데이터도 필요에 따라 추가
     ];
