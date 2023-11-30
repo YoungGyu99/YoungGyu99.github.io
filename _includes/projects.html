@@ -1,4 +1,3 @@
-User
 <!-- HTML 부분 -->
 <div class="section-wrapper">
     <section class="section projects" id="projects">
@@ -23,7 +22,6 @@ let projects_obj = [
         image: 'assets/images/FestivalGuideProject.png',
         link: 'https://github.com/YoungGyu99/FestivalGuideProject',
         title: '축제길잡이',
-        technologies: ['Java', 'Oracle', 'Spring', 'Apache Tomcat'],
         description: `
             기간: 2023.08.20. ~ 2023.09.27<br>        
             구성원: 1명<br>
@@ -36,7 +34,6 @@ let projects_obj = [
         image: 'assets/images/FestivalBot.png',
         link: 'https://github.com/YoungGyu99/FestivalBotProject',
         title: '축제봇',
-        technologies: ['Machine-Learning', 'Html', 'JavaScript'],
         description: `
             기간: 2023.10.20 ~ 2023.10.29<br>
             구성원: 1명<br>
@@ -49,7 +46,6 @@ let projects_obj = [
         image: 'assets/images/gta project img.png',
         link: 'https://github.com/YoungGyu99/FestivalBotProject',
         title: 'GTA (Green Tech Architecture)',
-        technologies: ['Machine-Learning', 'Python', 'HTML', 'Java','Oracle SQL Developer', 'SVN', 'Jenkins', 'Apache Tomcat', 'Spring MVC'],        
         description: `
             기간: 2023.10.30 ~ 2023.12.24<br>
             구성원: 5명<br>
@@ -97,12 +93,6 @@ let project_mapper = project => {
                         <h2 class="project-title"><a href="${project.link}">${project.title}</a></h2>
                         ${render_description(project.description)}
                     </article>
-
-                    <div class="card__meta">
-                        ${project.technologies.map(tech =>
-                            `<span class="project-technology paragraph-text-normal">${tech}</span>`
-                        ).join('')}
-                    </div>
                 </div>
             </div>
         </div>
