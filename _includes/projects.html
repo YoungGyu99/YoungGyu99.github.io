@@ -80,6 +80,14 @@ let render_projects = () => {
 }
 
 let project_mapper = project => {
+    const maxTechsPerColumn = 4;
+    const techColumns = [];
+
+    for (let i = 0; i < project.technologies.length; i += maxTechsPerColumn) {
+        const techSlice = project.technologies.slice(i, i + maxTechsPerColumn);
+        techColumns.push(techSlice);
+    }
+
     return `
         <div class="wrapper">
             <div class="card radius shadowDepth1">
@@ -98,8 +106,10 @@ let project_mapper = project => {
                     </article>
 
                     <div class="card__meta">
-                        ${project.technologies.map(tech =>
-                            `<span class="project-technology paragraph-text-normal">${tech}</span>`
+                        ${techColumns.map(column =>
+                            `<div class="tech-column">${column.map(tech =>
+                                `<span class="project-technology paragraph-text-normal">${tech}</span>`
+                            ).join('')}</div>`
                         ).join('')}
                     </div>
                 </div>
