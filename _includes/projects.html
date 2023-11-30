@@ -80,15 +80,6 @@ let render_projects = () => {
 }
 
 let project_mapper = project => {
-    const maxTechDisplayLength = 50;  // 기술 목록에 표시할 최대 길이
-
-    let displayedTech = project.technologies.map(tech => {
-        if (tech.length > maxTechDisplayLength) {
-            return tech.substring(0, maxTechDisplayLength) + '...';
-        }
-        return tech;
-    }).join('');
-
     return `
         <div class="wrapper">
             <div class="card radius shadowDepth1">
@@ -107,7 +98,9 @@ let project_mapper = project => {
                     </article>
 
                     <div class="card__meta">
-                        <span class="project-technology paragraph-text-normal">${displayedTech}</span>
+                        ${project.technologies.map(tech =>
+                            `<span class="project-technology paragraph-text-normal">${tech}</span>`
+                        ).join('')}
                     </div>
                 </div>
             </div>
