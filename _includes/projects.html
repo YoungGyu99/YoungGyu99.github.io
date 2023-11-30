@@ -4,10 +4,6 @@
         <div class="full-width">
             <div class="section-heading" id="featured-projects-text">Projects</div>
 
-            <div class="project-technologies">
-                <!-- 버튼 부분은 제거 -->
-            </div>
-
             <div class="projects-wrapper">
                 <!-- filled in by js -->
             </div>
@@ -48,7 +44,7 @@ let projects_obj = [
         image: 'assets/images/FestivalBot.png',
         link: 'https://github.com/YoungGyu99/FestivalBotProject',
         title: 'GTA (Green Tech Architecture)',
-        technologies: ['Machine-Learning', 'Python', 'Jupter', 'TensorFlow', 'HTML', 'CSS', 'JS', 'Java','Oracle SQL Developer', 'SVN', 'Jenkins', 'Jira', 'GitHub', 'Apache Tomcat', 'Spring MVC', 'Ubuntu', 'Linux'] ,        
+        technologies: ['Machine-Learning', 'Python', 'Jupter', 'TensorFlow', 'HTML', 'CSS', 'JS', 'Java', 'Oracle SQL Developer', 'SVN', 'Jenkins', 'Jira', 'GitHub', 'Apache Tomcat', 'Spring MVC', 'Ubuntu', 'Linux'],
         description: `
             기간: 2023.10.30 ~ 2023.12.24<br>
             구성원: 5명<br>
@@ -73,13 +69,32 @@ let render_description = (description) => {
 
 let render_projects = () => {
     let projects_area = $('.projects-wrapper');
-    $('.project-technologies').empty();
+    projects_area.empty();  // 기존 내용 비우기
 
-    let projects = projects_obj.map(project_mapper);
-    projects_area.hide().html(projects).fadeIn();
+    projects_obj.forEach(project => {
+        let projectHTML = project_mapper(project);
+        projects_area.append(projectHTML);
+    });
 }
 
 let project_mapper = project => {
+    const maxTechPerLine = 5;  // 한 줄에 표시할 최대 기술 수
+    const maxTechDisplayLength = 15;  // 각 기술의 최대 표시 길이
+
+    // 기술 목록 조정
+    let displayedTech = project.technologies.map(tech => {
+        if (tech.length > maxTechDisplayLength) {
+            return tech.substring(0, maxTechDisplayLength) + '...';
+        }
+        return tech;
+    });
+
+    // 기술 목록을 여러 줄로 나누기
+    let techLines = [];
+    for (let i = 0; i < displayedTech.length; i += maxTechPerLine) {
+        techLines.push(displayedTech.slice(i, i + maxTechPerLine).join(', '));
+    }
+
     return `
         <div class="wrapper">
             <div class="card radius shadowDepth1">
@@ -98,9 +113,9 @@ let project_mapper = project => {
                     </article>
 
                     <div class="card__meta">
-                        ${project.technologies.map(tech =>
-                            `<span class="project-technology paragraph-text-normal">${tech}</span>`
-                        ).join('')}
+                        ${techLines.map(line =>
+                            `<span class="project-technology paragraph-text-normal">${line}</span>`
+                        ).join('<br>')}
                     </div>
                 </div>
             </div>
