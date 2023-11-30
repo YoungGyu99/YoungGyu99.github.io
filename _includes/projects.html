@@ -61,7 +61,7 @@ let projects_obj = [
 ];
 
 let render_description = (description) => {
-    let lines = description.split('<br>');
+    let lines = description.split('\n');
     let result = '';
 
     for (let line of lines) {
