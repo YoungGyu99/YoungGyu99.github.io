@@ -86,7 +86,7 @@ let project_mapper = project => {
                 <div class="card__content card__padding">
                     <article class="card__article">
                         <h2 class="project-title"><a href="${project.link}">${project.title}</a></h2>
-                        <p class="paragraph-text-normal">${render_description(project.description)}</p>
+                        <p class="paragraph-text-normal">${render_description(project.description)} ${project.demo ? `<a href="${project.demo}">Demo</a>` : ''}</p>
                     </article>
 
                     <div class="card__meta">
@@ -99,6 +99,7 @@ let project_mapper = project => {
         </div>
     `;
 }
+
 
 // 초기 렌더링
 $(document).ready(() => {
