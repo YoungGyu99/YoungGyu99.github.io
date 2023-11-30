@@ -40,11 +40,11 @@ let projects_obj = [
         technologies: ['Machine-Learning ', 'Html','JavaScript', ],
         description: `
             기간: 2023.10.20 ~ 2023.10.29
-         
+             
             기능: 어떤 축제를 방문할지 모르는 관광객을 위해 원하는 축제 주제를 통한 축제 추천과 검색어 순위를 통해 어떤 내용을 많이 검색하는지 순위를 알려주는 축제봇
-        
+            
             설명: 어떤 축제를 방문할지 모르는 관광객을 위해 원하는 축제 주제를 통한 축제 추천과 검색어 순위를 통해 어떤 내용을 많이 검색하는지 순위를 알려주는 축제봇
-         
+             
             성과: 성과가 없는 경우 비워둘 수 있습니다.
         `
     },
@@ -86,7 +86,7 @@ let project_mapper = project => {
                 <div class="card__content card__padding">
                     <article class="card__article">
                         <h2 class="project-title"><a href="${project.link}">${project.title}</a></h2>
-                        <p class="paragraph-text-normal">${render_description(project.description)} ${project.demo ? `<a href="${project.demo}">Demo</a>` : ''}</p>
+                        <p class="paragraph-text-normal">${render_description(project.description)}</p>
                     </article>
 
                     <div class="card__meta">
@@ -99,7 +99,6 @@ let project_mapper = project => {
         </div>
     `;
 }
-
 
 // 초기 렌더링
 $(document).ready(() => {
