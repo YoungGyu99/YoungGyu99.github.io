@@ -80,14 +80,6 @@ let render_projects = () => {
 }
 
 let project_mapper = project => {
-    const maxTechsPerColumn = 4;
-    const techColumns = [];
-
-    for (let i = 0; i < project.technologies.length; i += maxTechsPerColumn) {
-        const techSlice = project.technologies.slice(i, i + maxTechsPerColumn);
-        techColumns.push(techSlice);
-    }
-
     return `
         <div class="wrapper">
             <div class="card radius shadowDepth1">
@@ -106,10 +98,8 @@ let project_mapper = project => {
                     </article>
 
                     <div class="card__meta">
-                        ${techColumns.map(column =>
-                            `<div class="tech-column">${column.map(tech =>
-                                `<span class="project-technology paragraph-text-normal">${tech}</span>`
-                            ).join('')}</div>`
+                        ${project.technologies.map(tech =>
+                            `<span class="project-technology paragraph-text-normal">${tech}</span>`
                         ).join('')}
                     </div>
                 </div>
@@ -123,3 +113,22 @@ $(document).ready(() => {
     render_projects();
 });
 </script>
+<style>
+  .card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    /* 다른 필요한 스타일을 추가할 수 있습니다. */
+  }
+
+  .project-technology {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    /* 다른 필요한 스타일을 추가할 수 있습니다. */
+  }
+
+  /* 기술 스택 요소의 높이를 조절합니다. */
+  .project-technology {
+    height: 30px; /* 높이를 조절하세요. */
+    line-height: 30px; /* 높이와 같은 값을 지정합니다. */
+  }
+</style>
