@@ -11,7 +11,6 @@ let projects_obj = [
         image: 'assets/images/koalamate.png',
         link: 'https://github.com/abhn/koalamate',
         title: 'Koalamate',
-        demo: false,
         technologies: ['Electron', 'Javascript'],
         description: "A cross-platform desktop application that serves as a Wolfram Alpha query place and notes taker.",
     },
