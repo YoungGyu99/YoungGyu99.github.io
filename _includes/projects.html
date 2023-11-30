@@ -4,6 +4,10 @@
         <div class="full-width">
             <div class="section-heading" id="featured-projects-text">Projects</div>
 
+            <div class="project-technologies">
+                <!-- 버튼 부분은 제거 -->
+            </div>
+
             <div class="projects-wrapper">
                 <!-- filled in by js -->
             </div>
@@ -44,8 +48,7 @@ let projects_obj = [
         image: 'assets/images/gta project img.png',
         link: 'https://github.com/YoungGyu99/FestivalBotProject',
         title: 'GTA (Green Tech Architecture)',
-        technologies: ['Machine-Learning', 'Python', 'Jupter', 'TensorFlow', 'HTML', 'CSS', 'JS', 'Java', 'Oracle SQL Developer', 'SVN', 'Jenkins', 'Jira', 'GitHub', 'Apache Tomcat', 'Spring MVC', 'Ubuntu', 'Linux'],
-        description: `
+        technologies: ['Machine-Learning', 'Python', 'Jupter', 'TensorFlow', 'HTML', 'CSS', 'JS', 'Java','Oracle SQL Developer', 'SVN', 'Jenkins', 'Jira', 'GitHub', 'Apache Tomcat', 'Spring MVC', 'Ubuntu', 'Linux'] ,        description: `
             기간: 2023.10.30 ~ 2023.12.24<br>
             구성원: 5명<br>
             기능: 어떤 축제를 방문할지 모르는 관광객을 위해 원하는 축제 주제를 통한 축제 추천과 검색어 순위를 통해 어떤 내용을 많이 검색하는지 순위를 알려주는 축제봇<br>           
@@ -69,32 +72,13 @@ let render_description = (description) => {
 
 let render_projects = () => {
     let projects_area = $('.projects-wrapper');
-    projects_area.empty();  // 기존 내용 비우기
+    $('.project-technologies').empty();
 
-    projects_obj.forEach(project => {
-        let projectHTML = project_mapper(project);
-        projects_area.append(projectHTML);
-    });
+    let projects = projects_obj.map(project_mapper);
+    projects_area.hide().html(projects).fadeIn();
 }
 
 let project_mapper = project => {
-    const maxTechPerLine = 5;  // 한 줄에 표시할 최대 기술 수
-    const maxTechDisplayLength = 15;  // 각 기술의 최대 표시 길이
-
-    // 기술 목록 조정
-    let displayedTech = project.technologies.map(tech => {
-        if (tech.length > maxTechDisplayLength) {
-            return tech.substring(0, maxTechDisplayLength) + '...';
-        }
-        return tech;
-    });
-
-    // 기술 목록을 여러 줄로 나누기
-    let techLines = [];
-    for (let i = 0; i < displayedTech.length; i += maxTechPerLine) {
-        techLines.push(displayedTech.slice(i, i + maxTechPerLine).join(', '));
-    }
-
     return `
         <div class="wrapper">
             <div class="card radius shadowDepth1">
@@ -113,8 +97,8 @@ let project_mapper = project => {
                     </article>
 
                     <div class="card__meta">
-                        ${techLines.map(line =>
-                            `<span class="project-technology paragraph-text-normal">${line}</span>`
+                        ${project.technologies.map(tech =>
+                            `<span class="project-technology paragraph-text-normal">${tech}</span>`
                         ).join('')}
                     </div>
                 </div>
