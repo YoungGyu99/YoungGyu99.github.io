@@ -78,14 +78,13 @@ let render_projects = () => {
 }
 
 let project_mapper = project => {
-    const maxTechDisplayLength = 50;  // 기술 목록에 표시할 최대 길이
-
+    const maxTechPerLine = 5;  // 한 줄에 표시할 최대 기술 수
     let displayedTech = project.technologies.map(tech => {
         if (tech.length > maxTechDisplayLength) {
             return tech.substring(0, maxTechDisplayLength) + '...';
         }
         return tech;
-    }).join('');
+    }).join(', ');
 
     return `
         <div class="wrapper">
