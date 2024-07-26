@@ -521,15 +521,17 @@ a {
     background-attachment: unset;
   }
 
-  .head-title {
-    display: block;
-    text-align: center;
-    font-size: 2.75rem;
-  }
-  
-  .head-punchline {
-    text-align: center;
-  }
+.head-title {
+  display: block;
+  text-align: center;
+  font-size: 2.75rem;
+  margin: 0 auto; 
+}
+
+.head-punchline {
+  text-align: center;
+}
+
 
   .skills-grid {
     -ms-grid-columns: 100%;
