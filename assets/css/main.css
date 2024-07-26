@@ -35,10 +35,12 @@ img {
   font-weight: bold;
   text-align: center;
 }
-.head-name {
+#head-name {
     text-align: center; 
-    margin: 0 auto;   
+    margin: 0 auto;    
+    width: fit-content; 
 }
+
 
 
 .parent-container {
