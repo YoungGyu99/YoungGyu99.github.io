@@ -36,6 +36,7 @@ img {
   text-align: center;
 }
 #head-name {
+    display: inline-block; 
     text-align: center; 
     margin: 0 auto;    
     width: fit-content; 
