@@ -35,6 +35,11 @@ img {
   font-weight: bold;
   text-align: center;
 }
+.head-name {
+    text-align: center; 
+    margin: 0 auto;   
+}
+
 
 .parent-container {
   text-align: center;
